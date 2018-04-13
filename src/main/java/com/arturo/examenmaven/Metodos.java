@@ -28,4 +28,12 @@ public class Metodos{
         JOptionPane.showMessageDialog(null,doc.title());
         return tit;
     }
+    public void temperatura(){
+        String temp=doc.select("div.today_nowcard-temp").text();
+        JOptionPane.showMessageDialog(null, temp);
+    }
+    public void frasePronostico(){
+        String frase=doc.select("div.today_nowcard-phrase").text();
+        JOptionPane.showMessageDialog(null, frase);
+    }
 }
