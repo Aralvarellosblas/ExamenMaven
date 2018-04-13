@@ -23,17 +23,35 @@ public class Metodos{
             Logger.getLogger(ExamenMaven.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public String tituloWeb(){
         String tit=doc.title();
-        JOptionPane.showMessageDialog(null,doc.title());
+        //JOptionPane.showMessageDialog(null,doc.title());
         return tit;
     }
-    public void temperatura(){
+
+    public String temperatura(){
         String temp=doc.select("div.today_nowcard-temp").text();
-        JOptionPane.showMessageDialog(null, temp);
+        //JOptionPane.showMessageDialog(null, temp);
+        return temp;
     }
-    public void frasePronostico(){
+
+    public String frasePronostico(){
         String frase=doc.select("div.today_nowcard-phrase").text();
-        JOptionPane.showMessageDialog(null, frase);
+        //JOptionPane.showMessageDialog(null, frase);
+        return frase;
     }
+
+    public String localizacion(){
+        String loc=doc.select("h1.h4.today_nowcard-location").text();
+        //JOptionPane.showMessageDialog(null, loc);
+        return loc;
+    }
+
+    public void salidaDatos(){
+        JOptionPane.showMessageDialog(null, "El tiempo de hoy en "+localizacion()+"."
+                +"\nLa temperatura es de "+temperatura()+" la situación Metereologica actual es de "+frasePronostico()
+                +"\nDatos extraidos de "+tituloWeb());
+    }
+
 }
